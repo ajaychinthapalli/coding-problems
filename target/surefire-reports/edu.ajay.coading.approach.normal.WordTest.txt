@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: edu.ajay.coading.approach.normal.WordTest
+-------------------------------------------------------------------------------
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.048 s - in edu.ajay.coading.approach.normal.WordTest

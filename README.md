@@ -13,3 +13,13 @@ implemented here are encountered in the daily work of any developer/engineer.
     -[x] Removing white spaces from a string
     -[x] Joining multiple strings with a delimiter
     -[x] Generating all permutations
+    
+## Practice
+    -[x] A list of books
+    -[x] A map classifying books by topic
+    -[x] An ordered map from book titles to publication date of latest edition
+    -[x] A map partitioning books into programming (mapped to true) and history (false) 
+    -[x] A map associating each topic with the book on that topic having the most authors
+    -[x] A map associating each topic with the total number of volumes on that topic
+    -[x] The topic with the most books
+    -[x] A map from each topic to the concatenation of all the book titles on that topic

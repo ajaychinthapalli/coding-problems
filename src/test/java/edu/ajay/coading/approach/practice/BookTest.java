@@ -27,6 +27,7 @@ public class BookTest extends TestCase {
 	private static final String VOLUME_COUNT_BY_TOPIC = "fixtures/volume-count-by-topic.txt";
 	private static final String MOST_POPULAR_TOPIC = "fixtures/most-popular-topic.txt";
 	private static final String CONCATENATED_TITLES_BY_TOPIC = "fixtures/concatenated-titles-by-topic.txt";
+	private static final String AUTHORS_FOR_BOOKS = "fixtures/authors-for-books.txt";
 
 	private Book book;
 	private Book java, database, wingsOfFire, middleware;
@@ -116,13 +117,20 @@ public class BookTest extends TestCase {
 	}
 
 	@Test
-	public void testGetConcetenatedTitles() throws IOException {
+	public void testGetConcetenatedTitles() {
 		String expectedResult = "Fundamentals of Java Programming::Fundamentals of Database::Wings Of Fire::Fundamentals of Middleware";
 		// ~ when:
 		String actualResult = book.getConcetenatedTitles(library);
 		// ~ then:
-		System.out.println(actualResult);
 		Assert.assertEquals(expectedResult, actualResult);
+	}
+	
+	@Test
+	public void testGetAuthorsForBooks() throws IOException {
+		// ~ when:
+		List<String> actualResult = book.getAuthorsForBooks(library);
+		// ~ then:
+		Assert.assertEquals(readResource(AUTHORS_FOR_BOOKS).toString(), actualResult.toString());
 	}
 
 	/**

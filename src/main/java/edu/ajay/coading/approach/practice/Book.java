@@ -173,6 +173,23 @@ public class Book {
 		return concatenatedTitles;
 	}
 
+	/**
+	 * A list of strings, each containing all the authors' names for a single book.
+	 * 
+	 * The following code will produce a string concatenating the book's authors,
+	 * separated by commas(,), beginning with the book's title and ending with a new
+	 * line.
+	 * 
+	 * @param library
+	 * @return List<String>
+	 */
+	public List<String> getAuthorsForBooks(List<Book> library) {
+		List<String> authorsForBooks = library.stream()
+				.map(book -> book.getAuthors().stream().collect(Collectors.joining(", ", book.getTitle() + ": ", "\n")))
+				.collect(Collectors.toList());
+		return authorsForBooks;
+	}
+
 	@Override
 	public String toString() {
 		return "Book [title=" + title + ", authors=" + authors + ", pageCounts=" + Arrays.toString(pageCounts)

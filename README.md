@@ -14,7 +14,7 @@ implemented here are encountered in the daily work of any developer/engineer.
     -[x] Joining multiple strings with a delimiter
     -[x] Generating all permutations
     
-## Practice
+## Practice: Examples of Stream operations
     -[x] A list of books
     -[x] A map classifying books by topic
     -[x] An ordered map from book titles to publication date of latest edition

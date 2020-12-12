@@ -161,6 +161,18 @@ public class Book {
 		return concatenatedTitlesByTopic;
 	}
 
+	/**
+	 * To concatenate the titles of all books in my library, separating the titles
+	 * by a double colon.
+	 * 
+	 * @param library
+	 * @return String
+	 */
+	public String getConcetenatedTitles(List<Book> library) {
+		String concatenatedTitles = library.stream().map(Book::getTitle).collect(Collectors.joining("::"));
+		return concatenatedTitles;
+	}
+
 	@Override
 	public String toString() {
 		return "Book [title=" + title + ", authors=" + authors + ", pageCounts=" + Arrays.toString(pageCounts)

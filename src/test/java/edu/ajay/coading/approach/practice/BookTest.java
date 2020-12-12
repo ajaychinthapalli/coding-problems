@@ -115,6 +115,16 @@ public class BookTest extends TestCase {
 		Assert.assertEquals(readResource(CONCATENATED_TITLES_BY_TOPIC).toString(), actualResult.toString());
 	}
 
+	@Test
+	public void testGetConcetenatedTitles() throws IOException {
+		String expectedResult = "Fundamentals of Java Programming::Fundamentals of Database::Wings Of Fire::Fundamentals of Middleware";
+		// ~ when:
+		String actualResult = book.getConcetenatedTitles(library);
+		// ~ then:
+		System.out.println(actualResult);
+		Assert.assertEquals(expectedResult, actualResult);
+	}
+
 	/**
 	 * Utility to read resources.
 	 * 

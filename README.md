@@ -23,4 +23,4 @@ implemented here are encountered in the daily work of any developer/engineer.
     -[x] A map associating each topic with the total number of volumes on that topic
     -[x] The topic with the most books
     -[x] A map from each topic to the concatenation of all the book titles on that topic
-    -[x] To concatenate the titles of all books in my library, separating the titles by a double colon.
+    -[x] To concatenate the titles of all books in my library, separating the titles by a double colon

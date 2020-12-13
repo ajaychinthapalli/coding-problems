@@ -193,7 +193,7 @@ public class Book {
 	}
 
 	/**
-	 * To collect stream of elements into a sorted set.
+	 * To collect stream of elements into a sorted set using custom collections.
 	 * 
 	 * We might expect that corresponding overloads of toList and toSet would be
 	 * provided to create collectors capable of allowing the specification of custom

@@ -214,6 +214,18 @@ public class Book {
 		return sortedTitles;
 	}
 
+	/**
+	 * A different downstream collector, one that counts the incoming elements.
+	 * 
+	 * @param library
+	 * @return Map<Topic, Long>
+	 */
+	public Map<Topic, Long> getDistributionByCount(List<Book> library) {
+		Map<Topic, Long> distributionByCount = library.stream()
+				.collect(Collectors.groupingBy(Book::getTopic, Collectors.counting()));
+		return distributionByCount;
+	}
+
 	@Override
 	public String toString() {
 		return "Book [title=" + title + ", authors=" + authors + ", pageCounts=" + Arrays.toString(pageCounts)

@@ -26,4 +26,5 @@ implemented here are encountered in the daily work of any developer/engineer.
     -[x] To concatenate the titles of all books in my library, separating the titles by a double colon
     -[x] A list of strings, each containing all the authors' names for a single book
     -[x] To collect stream of elements into a sorted set using custom collections
+    -[x] A different downstream collector, one that counts the incoming elements
     

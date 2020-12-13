@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.time.Year;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.NavigableSet;
@@ -145,6 +146,17 @@ public class BookTest extends TestCase {
 		expectedResult.add("Wings Of Fire");
 		// ~ when:
 		NavigableSet<String> actualResult = book.getSortedTitles(library);
+		// ~ then:
+		Assert.assertEquals(expectedResult, actualResult);
+	}
+
+	@Test
+	public void testGetDistributionByCount() {
+		Map<Topic, Long> expectedResult = new HashMap<>();
+		expectedResult.put(Topic.HISTORY, 1L);
+		expectedResult.put(Topic.PROGRAMMING, 3L);
+		// ~ when:
+		Map<Topic, Long> actualResult = book.getDistributionByCount(library);
 		// ~ then:
 		Assert.assertEquals(expectedResult, actualResult);
 	}

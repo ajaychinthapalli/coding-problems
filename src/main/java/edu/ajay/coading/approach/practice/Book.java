@@ -5,8 +5,10 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.NavigableSet;
 import java.util.Optional;
 import java.util.TreeMap;
+import java.util.TreeSet;
 import java.util.function.BinaryOperator;
 import java.util.stream.Collectors;
 
@@ -188,6 +190,28 @@ public class Book {
 				.map(book -> book.getAuthors().stream().collect(Collectors.joining(", ", book.getTitle() + ": ", "\n")))
 				.collect(Collectors.toList());
 		return authorsForBooks;
+	}
+
+	/**
+	 * To collect stream of elements into a sorted set.
+	 * 
+	 * We might expect that corresponding overloads of toList and toSet would be
+	 * provided to create collectors capable of allowing the specification of custom
+	 * suppliers. In fact, rather than providing both toList and toSet with an extra
+	 * overload, a single more general method toCollection has been provided
+	 * instead. This is more versatile: it allows us to choose not only arbitrary
+	 * implementations of Set and List, but of any sub interface of Collection.
+	 * (Reference: Mastering Lambdas: Java Programming in a Multicore World. page 78
+	 * 
+	 * Note: Set <- SortedSet <- NavigableSet <-- TreeSet
+	 * 
+	 * @param library
+	 * @return NavigableSet<String>
+	 */
+	public NavigableSet<String> getSortedTitles(List<Book> library) {
+		NavigableSet<String> sortedTitles = library.stream().map(Book::getTitle)
+				.collect(Collectors.toCollection(TreeSet::new));
+		return sortedTitles;
 	}
 
 	@Override

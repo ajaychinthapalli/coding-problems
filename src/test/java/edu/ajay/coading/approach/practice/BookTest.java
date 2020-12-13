@@ -6,7 +6,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.NavigableSet;
 import java.util.Optional;
+import java.util.TreeSet;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -124,13 +126,27 @@ public class BookTest extends TestCase {
 		// ~ then:
 		Assert.assertEquals(expectedResult, actualResult);
 	}
-	
+
 	@Test
 	public void testGetAuthorsForBooks() throws IOException {
 		// ~ when:
 		List<String> actualResult = book.getAuthorsForBooks(library);
 		// ~ then:
 		Assert.assertEquals(readResource(AUTHORS_FOR_BOOKS).toString(), actualResult.toString());
+	}
+
+	@Test
+	public void testGetSortedTitles() {
+		NavigableSet<String> expectedResult = new TreeSet<>();
+		// Titles are added using add() method
+		expectedResult.add("Fundamentals of Database");
+		expectedResult.add("Fundamentals of Java Programming");
+		expectedResult.add("Fundamentals of Middleware");
+		expectedResult.add("Wings Of Fire");
+		// ~ when:
+		NavigableSet<String> actualResult = book.getSortedTitles(library);
+		// ~ then:
+		Assert.assertEquals(expectedResult, actualResult);
 	}
 
 	/**

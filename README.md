@@ -14,7 +14,7 @@ implemented here are encountered in the daily work of any developer/engineer.
     -[x] Joining multiple strings with a delimiter
     -[x] Generating all permutations
     
-## Practice: Examples of Stream operations 
+## Examples of Stream operations 
 #### Reference: https://github.com/MauriceNaftalin/masteringlambdas
     -[x] A list of books
     -[x] A map classifying books by topic

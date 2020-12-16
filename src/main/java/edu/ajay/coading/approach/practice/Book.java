@@ -231,6 +231,8 @@ public class Book {
 	 * A list of books in the library showing the volume numbers and page counts of
 	 * each.
 	 * 
+	 * Implementation of IntStream.rangeClosed(int startInclusive, int endInclusive)
+	 * 
 	 * @param library
 	 */
 	public void getBookListWithVolumeNumbersAndPageCounts(List<Book> library) {

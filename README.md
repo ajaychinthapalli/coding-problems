@@ -15,7 +15,7 @@ implemented here are encountered in the daily work of any developer/engineer.
     -[x] Generating all permutations
     
 ## Practice: Examples of Stream operations 
-### Reference: https://github.com/MauriceNaftalin/masteringlambdas
+#### Reference: https://github.com/MauriceNaftalin/masteringlambdas
     -[x] A list of books
     -[x] A map classifying books by topic
     -[x] An ordered map from book titles to publication date of latest edition

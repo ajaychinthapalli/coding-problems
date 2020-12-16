@@ -28,4 +28,5 @@ implemented here are encountered in the daily work of any developer/engineer.
     -[x] A list of strings, each containing all the authors' names for a single book
     -[x] To collect stream of elements into a sorted set using custom collections
     -[x] A different downstream collector, one that counts the incoming elements
+    -[x] A list of books in the library showing the volume numbers and page counts of each
     

@@ -11,6 +11,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.function.BinaryOperator;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  *
@@ -224,6 +225,21 @@ public class Book {
 		Map<Topic, Long> distributionByCount = library.stream()
 				.collect(Collectors.groupingBy(Book::getTopic, Collectors.counting()));
 		return distributionByCount;
+	}
+
+	/**
+	 * A list of books in the library showing the volume numbers and page counts of
+	 * each.
+	 * 
+	 * @param library
+	 */
+	public void getBookListWithVolumeNumbersAndPageCounts(List<Book> library) {
+		// TODO:
+		library.stream().map(book -> {
+			int[] volumes = book.getPageCounts();
+			return IntStream.rangeClosed(1, volumes.length)
+					.mapToObj(i -> book.getTitle() + ":" + i + ":" + volumes[i - 1]).collect(Collectors.joining());
+		}).forEach(System.out::println);
 	}
 
 	@Override

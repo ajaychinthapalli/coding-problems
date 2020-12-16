@@ -160,6 +160,11 @@ public class BookTest extends TestCase {
 		// ~ then:
 		Assert.assertEquals(expectedResult, actualResult);
 	}
+	
+	@Test
+	public void testGetBookListWithVolumeNumbersAndPageCounts() {
+		book.getBookListWithVolumeNumbersAndPageCounts(library);
+	}
 
 	/**
 	 * Utility to read resources.

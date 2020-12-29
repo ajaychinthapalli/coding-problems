@@ -2,7 +2,6 @@ package edu.ajay.coading.approach.practice;
 
 import java.io.IOException;
 import java.time.Year;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -48,11 +47,7 @@ public class BookTest extends TestCase {
 		middleware = new Book("Fundamentals of Middleware", Arrays.asList("Raj Kumar"), new int[] { 237 },
 				Topic.PROGRAMMING, Year.of(2018), 22.6);
 
-		library = new ArrayList<>();
-		library.add(java);
-		library.add(database);
-		library.add(wingsOfFire);
-		library.add(middleware);
+		library = Arrays.asList(java, database, wingsOfFire, middleware);
 	}
 
 	@Test

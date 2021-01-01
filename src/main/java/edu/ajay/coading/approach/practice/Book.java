@@ -2,7 +2,6 @@ package edu.ajay.coading.approach.practice;
 
 import java.time.Year;
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.NavigableSet;
@@ -10,8 +9,11 @@ import java.util.Optional;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.function.BinaryOperator;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
+
+import static java.util.Comparator.*;
+import static java.util.Map.Entry.*;
+import static java.util.stream.Collectors.*;
+import static java.util.stream.IntStream.*;
 
 /**
  *
@@ -74,7 +76,7 @@ public class Book {
 	 * @return List<Book>
 	 */
 	public List<Book> getListOfBooks(List<Book> library) {
-		return library.stream().collect(Collectors.toList());
+		return library.stream().collect(toList());
 	}
 
 	/**
@@ -84,7 +86,7 @@ public class Book {
 	 * @return Map<Topic, List<Book>>
 	 */
 	public Map<Topic, List<Book>> getBooksByTopic(List<Book> library) {
-		Map<Topic, List<Book>> booksByTopic = library.stream().collect(Collectors.groupingBy(Book::getTopic));
+		Map<Topic, List<Book>> booksByTopic = library.stream().collect(groupingBy(Book::getTopic));
 		return booksByTopic;
 	}
 
@@ -95,8 +97,8 @@ public class Book {
 	 * @return Map<String, Year>
 	 */
 	public Map<String, Year> getTitleToPublicationDate(List<Book> library) {
-		Map<String, Year> titleToPublicationDate = library.stream().collect(Collectors.toMap(Book::getTitle,
-				Book::getPubDate, BinaryOperator.maxBy(Comparator.naturalOrder()), TreeMap::new));
+		Map<String, Year> titleToPublicationDate = library.stream().collect(toMap(Book::getTitle,
+				Book::getPubDate, BinaryOperator.maxBy(naturalOrder()), TreeMap::new));
 		return titleToPublicationDate;
 	}
 
@@ -109,7 +111,7 @@ public class Book {
 	 */
 	public Map<Boolean, List<Book>> isProgrammingOrHistory(List<Book> library) {
 		Map<Boolean, List<Book>> programmingOrHistory = library.stream()
-				.collect(Collectors.partitioningBy(book -> book.getTopic() == Topic.PROGRAMMING));
+				.collect(partitioningBy(book -> book.getTopic() == Topic.PROGRAMMING));
 		return programmingOrHistory;
 	}
 
@@ -121,8 +123,8 @@ public class Book {
 	 * @return Map<Topic, Optional<Book>>
 	 */
 	public Map<Topic, Optional<Book>> getMostAuthorsByTopic(List<Book> library) {
-		Map<Topic, Optional<Book>> mostAuthorsByTopic = library.stream().collect(Collectors.groupingBy(Book::getTopic,
-				Collectors.maxBy(Comparator.comparing(book -> book.getAuthors().size()))));
+		Map<Topic, Optional<Book>> mostAuthorsByTopic = library.stream().collect(groupingBy(Book::getTopic,
+				maxBy(comparing(book -> book.getAuthors().size()))));
 		return mostAuthorsByTopic;
 	}
 
@@ -134,7 +136,7 @@ public class Book {
 	 */
 	public Map<Topic, Integer> getVolumeCountByTopic(List<Book> library) {
 		Map<Topic, Integer> volumeCountByTopic = library.stream().collect(
-				Collectors.groupingBy(Book::getTopic, Collectors.summingInt(book -> book.getPageCounts().length)));
+				groupingBy(Book::getTopic, summingInt(book -> book.getPageCounts().length)));
 		return volumeCountByTopic;
 	}
 
@@ -146,8 +148,8 @@ public class Book {
 	 */
 	public Optional<Topic> getMostPopularTopic(List<Book> library) {
 		Optional<Topic> mostPopularTopic = library.stream()
-				.collect(Collectors.groupingBy(Book::getTopic, Collectors.counting())).entrySet().stream()
-				.max(Map.Entry.comparingByValue()).map(Map.Entry::getKey);
+				.collect(groupingBy(Book::getTopic, counting())).entrySet().stream()
+				.max(comparingByValue()).map(Map.Entry::getKey);
 		return mostPopularTopic;
 	}
 
@@ -160,7 +162,7 @@ public class Book {
 	 */
 	public Map<Topic, String> getConcatenatedTitlesByTopic(List<Book> library) {
 		Map<Topic, String> concatenatedTitlesByTopic = library.stream().collect(
-				Collectors.groupingBy(Book::getTopic, Collectors.mapping(Book::getTitle, Collectors.joining(";"))));
+				groupingBy(Book::getTopic, mapping(Book::getTitle, joining(";"))));
 		return concatenatedTitlesByTopic;
 	}
 
@@ -172,7 +174,7 @@ public class Book {
 	 * @return String
 	 */
 	public String getConcetenatedTitles(List<Book> library) {
-		String concatenatedTitles = library.stream().map(Book::getTitle).collect(Collectors.joining("::"));
+		String concatenatedTitles = library.stream().map(Book::getTitle).collect(joining("::"));
 		return concatenatedTitles;
 	}
 
@@ -188,8 +190,8 @@ public class Book {
 	 */
 	public List<String> getAuthorsForBooks(List<Book> library) {
 		List<String> authorsForBooks = library.stream()
-				.map(book -> book.getAuthors().stream().collect(Collectors.joining(", ", book.getTitle() + ": ", "\n")))
-				.collect(Collectors.toList());
+				.map(book -> book.getAuthors().stream().collect(joining(", ", book.getTitle() + ": ", "\n")))
+				.collect(toList());
 		return authorsForBooks;
 	}
 
@@ -211,7 +213,7 @@ public class Book {
 	 */
 	public NavigableSet<String> getSortedTitles(List<Book> library) {
 		NavigableSet<String> sortedTitles = library.stream().map(Book::getTitle)
-				.collect(Collectors.toCollection(TreeSet::new));
+				.collect(toCollection(TreeSet::new));
 		return sortedTitles;
 	}
 
@@ -223,7 +225,7 @@ public class Book {
 	 */
 	public Map<Topic, Long> getDistributionByCount(List<Book> library) {
 		Map<Topic, Long> distributionByCount = library.stream()
-				.collect(Collectors.groupingBy(Book::getTopic, Collectors.counting()));
+				.collect(groupingBy(Book::getTopic, counting()));
 		return distributionByCount;
 	}
 
@@ -239,8 +241,8 @@ public class Book {
 		// TODO:
 		library.stream().map(book -> {
 			int[] volumes = book.getPageCounts();
-			return IntStream.rangeClosed(1, volumes.length)
-					.mapToObj(i -> book.getTitle() + ":" + i + ":" + volumes[i - 1]).collect(Collectors.joining());
+			return rangeClosed(1, volumes.length)
+					.mapToObj(i -> book.getTitle() + ":" + i + ":" + volumes[i - 1]).collect(joining());
 		}).forEach(System.out::println);
 	}
 

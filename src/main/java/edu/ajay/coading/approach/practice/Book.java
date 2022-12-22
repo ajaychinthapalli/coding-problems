@@ -238,7 +238,6 @@ public class Book {
 	 * @param library
 	 */
 	public void getBookListWithVolumeNumbersAndPageCounts(List<Book> library) {
-		// TODO:
 		library.stream().map(book -> {
 			int[] volumes = book.getPageCounts();
 			return rangeClosed(1, volumes.length)

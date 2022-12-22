@@ -1,0 +1,17 @@
+name: Coding Problems
+on: workflow_dispatch
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3ba5ee6fac7e0e30e2ea884e236f282d3a775891
+      - uses: actions/setup-java@35e7c82cf799eb829ee7017f5c8c072fde7d6aeb
+        with:
+          distribution: 'zulu'
+          java-version: '8'
+      - uses: s4u/setup-maven-action@fc8e36b65387f46c58a0e116dfb3eeff3f74d5ec
+        with:
+          java-version: 8
+          maven-version: 3.8.6
+      - run: |
+          mvn clean install -X -Dmaven.test.skip=true

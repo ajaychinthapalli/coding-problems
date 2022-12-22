@@ -14,4 +14,4 @@ jobs:
           java-version: 8
           maven-version: 3.8.6
       - run: |
-          mvn clean install -X -U
+          mvn clean install -X -Dmaven.test.skip=true

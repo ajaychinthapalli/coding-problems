@@ -13,8 +13,7 @@ implemented here are encountered in the daily work of any developer/engineer.
 - Joining multiple strings with a delimiter
 - Generating all permutations
     
-## Examples of Stream operations 
-#### Reference: https://github.com/MauriceNaftalin/masteringlambdas
+## Examples of Stream operations
 - A list of books
 - A map classifying books by topic
 - An ordered map from book titles to publication date of latest edition
@@ -28,4 +27,7 @@ implemented here are encountered in the daily work of any developer/engineer.
 - To collect stream of elements into a sorted set using custom collections
 - A different downstream collector, one that counts the incoming elements
 - A list of books in the library showing the volume numbers and page counts of each
+
+## Reference
+https://github.com/MauriceNaftalin/masteringlambdas
     

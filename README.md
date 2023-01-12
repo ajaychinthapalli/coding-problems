@@ -1,4 +1,4 @@
-# coding-problems (Work in Progress)
+# coding-problems
 
 Java coding problems are especially useful for beginners and intermediate java developers. However, the problems 
 implemented here are encountered in the daily work of any developer/engineer. 

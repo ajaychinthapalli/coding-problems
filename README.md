@@ -1,3 +1,5 @@
+[![Coding Problems](https://github.com/ajaychinthapalli/coding-problems/actions/workflows/main.yaml/badge.svg)](https://github.com/ajaychinthapalli/coding-problems/actions/workflows/main.yaml)
+
 # coding-problems
 
 Java coding problems are especially useful for beginners and intermediate java developers. However, the problems 

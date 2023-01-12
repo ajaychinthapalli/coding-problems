@@ -3,7 +3,6 @@
 Java coding problems are especially useful for beginners and intermediate java developers. However, the problems 
 implemented here are encountered in the daily work of any developer/engineer. 
 
-
 ## Strings, Numbers, and Math
 - Reversing letters and words
 - Checking whether a string contains only digits

@@ -2,7 +2,6 @@ package edu.ajay.coading.approach.practice;
 
 import java.io.IOException;
 import java.time.Year;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,6 +17,9 @@ import com.google.common.io.Resources;
 
 import edu.ajay.coading.approach.practice.Book.Topic;
 import junit.framework.TestCase;
+
+import static com.google.common.io.Resources.*;
+import static java.util.Arrays.*;
 
 public class BookTest extends TestCase {
 
@@ -38,16 +40,16 @@ public class BookTest extends TestCase {
 	@Override
 	protected void setUp() {
 		book = new Book();
-		java = new Book("Fundamentals of Java Programming", Arrays.asList("Ajay", "Sathiesh"), new int[] { 100 },
+		java = new Book("Fundamentals of Java Programming", asList("Ajay", "Sathiesh"), new int[] { 100 },
 				Topic.PROGRAMMING, Year.of(2020), 25.2);
-		database = new Book("Fundamentals of Database", Arrays.asList("Vasu"), new int[] { 200 }, Topic.PROGRAMMING,
+		database = new Book("Fundamentals of Database", asList("Vasu"), new int[] { 200 }, Topic.PROGRAMMING,
 				Year.of(2012), 30.4);
-		wingsOfFire = new Book("Wings Of Fire", Arrays.asList("Ravi"), new int[] { 146 }, Topic.HISTORY, Year.of(2017),
+		wingsOfFire = new Book("Wings Of Fire", asList("Ravi"), new int[] { 146 }, Topic.HISTORY, Year.of(2017),
 				18.6);
-		middleware = new Book("Fundamentals of Middleware", Arrays.asList("Raj Kumar"), new int[] { 237 },
+		middleware = new Book("Fundamentals of Middleware", asList("Raj Kumar"), new int[] { 237 },
 				Topic.PROGRAMMING, Year.of(2018), 22.6);
 
-		library = Arrays.asList(java, database, wingsOfFire, middleware);
+		library = asList(java, database, wingsOfFire, middleware);
 	}
 
 	@Test
@@ -168,7 +170,7 @@ public class BookTest extends TestCase {
 	 * @return String
 	 */
 	public String readResource(final String fileName) throws IOException {
-		return Resources.toString(Resources.getResource(fileName), Charsets.UTF_8);
+		return Resources.toString(getResource(fileName), Charsets.UTF_8);
 	}
 
 	@Override
